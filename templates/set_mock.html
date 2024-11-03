@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>接口mock</title>
+<script type="text/javascript">
+
+    function set(){
+        document.name.action="/mock/set";
+        document.name.submit();
+    }
+    
+    function search(){
+        document.name.action="/mock/search";
+        document.name.submit();
+    }
+</script>
+</head>
+ 
+<body>
+    <div>
+        <form action="/mock/set" method="post">
+            <label >api name :</label><input required type="text" name="api_name" value='{{mock["api_name"]}}' placeholder="请输入接口名称(英文)" ><br>
+            <label >mock data:</label><textarea required rows="20" cols="50" name="mock_value" placeholder="请输入mock值" >{{mock["mock_value"]}}</textarea><br>
+            <input type="submit" value="设置">
+        </form>
+        <form action="/mock/search" method="get">
+            <input type="submit" value="查询"> <a> {{mock["msg"]}} </a><br>
+        </form>
+    </div>
+</body>
+ 
+</html>

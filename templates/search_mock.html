@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>接口mock查询</title>
+<script type="text/javascript">
+    function setMock(){
+        document.name.action="/mock/set";
+        document.name.submit();
+    }
+    function searchMock(){
+        document.name.action="/mock/search";
+        document.name.submit();
+    }
+</script>
+</head>
+ 
+<body>
+    <div>
+        <form action="/mock/search" method="get">
+            <!-- <label >api name :</label><input type="text" name="api_name" value={{mock["api_name"]}} title="请输入接口名称(英文)" onfocus="this.value=''"><br> -->
+            <label for="api_name">api name:</label>
+            <select id="api_name" name="api_name">
+                {% if "" == mock["api_name"] %}
+                <option value="" selected>请选择</option>
+                {% endif %}
+                {% for item in mock["api_list"] %}
+                    {% if item == mock["api_name"] %}
+                    <option value="{{item}}" selected>{{item}}</option>
+                    {% else %}
+                    <option value="{{item}}">{{item}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select><br>
+            <label >mock data:</label><textarea readonly rows="20" cols="50" name="moke_value" title="请输入mock值" >{{mock["mock_value"]}}</textarea><br>
+            <input type="submit" value="查询">
+        </form>
+        <form action="/mock/set" method="get">
+            <input type="submit" value="设置">
+        </form>
+    </div>
+</body>
+ 
+</html>
