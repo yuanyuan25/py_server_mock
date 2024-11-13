@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 ### 本地地址
 
-http://127.0.0.1:18000/mock  
+<http://127.0.0.1:18000/mock>  
 
 ### 远程地址
 
